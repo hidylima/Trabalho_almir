@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Trabalho</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        var jq = jQuery.noConflict();
+        jq(document).ready((function () {
+            jq('tbody tr:odd').addClass('odd');
+        }));
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="frmMaster" runat="server">
+
+        <div id="main">
+
+            <div class="header">
+                <a href="Default.aspx" title="School System">
+                    <img src="images/logo.jpg" alt="School System" /></a>
+            </div>
+            <!-- /header -->
+
+            <div class="navSide radius">
+
+                <ul>
+                    <li><a href="#" title="Ir para paginal Inicial">Menu</a></li>
+                    <li>
+                        <ul class="itens">
+                            <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" StaticSubMenuIndent="16px">
+                    </asp:Menu>
+                        </ul>
+                    </li>
+              
+                </ul>
+
+            </div>
+            <!-- /navSide -->
+
+            <div id="content" class="radius">
+                <asp:ContentPlaceHolder ID="cphContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- /Content -->
+
+            <div class="footer">
+            </div>
+            <!-- /footer -->
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" />
+        </div>
+        <!-- /Main -->
+
+    </form>
+</body>
+</html>
